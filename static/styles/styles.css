@@ -1,1 +1,157 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+html {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #787887;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
+  background-image: linear-gradient(#af67e9, #6565e7);
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 1.5rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20rem;
+}
+
+.card::before {
+  content: url(../images/bg-pattern-mobile.svg);
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 0;
+}
+
+.card .illustration {
+  position: absolute;
+  top: -22%;
+  width: 14.75rem;
+  height: 11.25rem;
+}
+
+.card .title {
+  margin-top: 6.625rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #4a4b5e;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.card .faq-list {
+  margin-bottom: 1.5rem;
+}
+
+details {
+  border-bottom: 1px solid #e7e7e9;
+}
+
+details summary {
+  padding: 1rem 0;
+  position: relative;
+  cursor: pointer;
+  font-size: 0.875rem;
+  letter-spacing: -.31px;
+  font-weight: 400;
+  list-style: none;
+  margin-right: 2rem;
+  outline: 0;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::after {
+  content: url(../images/icon-arrow-down.svg);
+  position: absolute;
+  line-height: 0;
+  right: -2rem;
+  top: 1.5rem;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: 200ms linear;
+  transition: 200ms linear;
+}
+
+details[open] summary {
+  font-weight: 700;
+  padding-bottom: 0;
+}
+
+details[open] summary ~ * {
+  -webkit-animation: open 0.3s ease-in-out;
+          animation: open 0.3s ease-in-out;
+}
+
+details[open] summary::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  font-size: 2rem;
+}
+
+details p {
+  font-size: 0.75rem;
+  margin-top: 0.6875rem;
+  margin-bottom: 1rem;
+  max-width: 16rem;
+}
+
+@-webkit-keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

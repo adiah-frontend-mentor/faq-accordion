@@ -1,0 +1,186 @@
+// Breakpoint mixins
+// 640px, 1024px, 1400px
+$breakpoints-up: ("medium": "40em", "large": "64em", "xlarge": "87.5em");
+
+// 639px, 1023px, 1399px
+$breakpoints-down: ("small": "39.9375em" ,"medium": "63.9375em", "large": "87.4375em");
+
+@mixin breakpoint-up($size){
+	@media (min-width: map-get($breakpoints-up, $size)) {
+		@content;
+	}
+}
+
+@mixin breakpoint-down($size){
+	@media (max-width: map-get($breakpoints-down, $size)) {
+		@content;
+	}
+}
+
+// --------------------------------------------------------
+
+// Variables
+// Weights: 400(reg), 700(bold)
+$darkBlue: hsl(238, 29%, 16%);
+$softRed: hsl(14, 88%, 65%);
+
+$softViolet: hsl(273, 75%, 66%);
+$softBlue: hsl(240, 73%, 65%);
+
+// Text
+$darkText: hsl(237, 12%, 33%);
+$lightText: hsl(240, 6%, 50%);
+
+// Dividers
+$lightGrayishBlue: hsl(240, 5%, 91%);
+
+
+// Globals
+html {
+	font-size: 100%;
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Kumbh Sans', sans-serif;
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: $lightText;
+	background-image: linear-gradient($softViolet, $softBlue);
+	min-height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	// @include breakpoint-up(medium) {
+	// }
+}
+
+
+// -------------------------------------------------
+
+
+.card {
+	background-color: #fff;
+	border-radius: 24px;
+	padding: 1.5rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	// max-width: 20.4375rem;
+	width: 20rem;
+
+	&::before {
+		content: url(../images/bg-pattern-mobile.svg);
+		position: absolute;
+		z-index: 1;
+		// left and margin-left use the container's size
+		// translate(<x>%) uses the pseudo element's size
+		left: 50%;
+		transform: translateX(-50%);
+		top: 0;
+	}
+
+	.illustration {
+		position: absolute;
+		top: -22%;
+		width: 14.75rem;
+		height: 11.25rem;
+		// transform: translateY(50%)
+	}
+
+
+	.title {
+		margin-top: 6.625rem;
+		margin-bottom: 2rem;
+		text-align: center;
+		color: $darkText;
+		font-weight: 700;
+		font-size: 2rem;
+	}
+
+	.faq-list {
+		margin-bottom: 1.5rem;
+	}
+}
+
+
+details {
+
+	border-bottom: 1px solid $lightGrayishBlue;
+
+	summary {
+
+		padding: 1rem 0;
+		position: relative;
+		cursor: pointer;
+		font-size: 0.875rem;
+		letter-spacing: -.31px;
+		font-weight: 400;
+		list-style: none;
+		margin-right: 2rem;
+		outline: 0;
+
+		&::-webkit-details-marker{
+			display: none;
+		}
+
+		&::after {
+			content: url(../images/icon-arrow-down.svg);
+			position: absolute;
+			line-height: 0;
+			right: -2rem;
+			top: 1.5rem;
+			transform-origin: center;
+			transition: 200ms linear;
+		}
+
+	}
+
+	&[open] {
+
+		summary {
+
+			~ * {
+				animation: open 0.3s ease-in-out;
+			}
+
+			font-weight: 700;
+			padding-bottom: 0;
+
+			&::after {
+				transform: rotate(180deg);
+				font-size: 2rem;
+			}
+		}
+	}
+
+	p {
+		font-size: 0.75rem;
+		margin-top: 0.6875rem;
+		margin-bottom: 1rem;
+		max-width: 16rem;
+	}
+
+}
+
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
