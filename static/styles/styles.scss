@@ -20,7 +20,6 @@ $breakpoints-down: ("small": "39.9375em" ,"medium": "63.9375em", "large": "87.43
 // --------------------------------------------------------
 
 // Variables
-// Weights: 400(reg), 700(bold)
 $darkBlue: hsl(238, 29%, 16%);
 $softRed: hsl(14, 88%, 65%);
 
@@ -62,8 +61,6 @@ body {
 	align-items: center;
 	justify-content: center;
 
-	// @include breakpoint-up(medium) {
-	// }
 }
 
 
@@ -78,8 +75,23 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	// max-width: 20.4375rem;
 	width: 20rem;
+
+	@include breakpoint-up(medium) {
+		flex-direction: row;
+		width: 57.5rem;
+		height: 31.8125rem;
+		padding: 4rem 6.125rem;
+
+		background-image: url(../images/illustration-woman-online-desktop.svg), url(../images/bg-pattern-desktop.svg);
+		background-repeat: no-repeat, no-repeat;
+		background-position: left -5.25rem bottom 5.0625rem,
+			right 31.375rem bottom -8.75rem;
+
+		.faq-wrapper {
+			margin-left: auto;
+		}
+	}
 
 	&::before {
 		content: url(../images/bg-pattern-mobile.svg);
@@ -90,6 +102,13 @@ body {
 		left: 50%;
 		transform: translateX(-50%);
 		top: 0;
+
+		@include breakpoint-up(medium) {
+			content: url(../images/illustration-box-desktop.svg);
+			left: -8.0625rem;
+			top: 12.8125rem;
+			transform: none;
+		}
 	}
 
 	.illustration {
@@ -97,7 +116,10 @@ body {
 		top: -22%;
 		width: 14.75rem;
 		height: 11.25rem;
-		// transform: translateY(50%)
+
+		@include breakpoint-up(medium) {
+			display: none;
+		}
 	}
 
 
@@ -108,6 +130,11 @@ body {
 		color: $darkText;
 		font-weight: 700;
 		font-size: 2rem;
+
+		@include breakpoint-up(medium) {
+			margin-top: 0;
+			text-align: left;
+		}
 	}
 
 	.faq-list {
@@ -131,6 +158,14 @@ details {
 		list-style: none;
 		margin-right: 2rem;
 		outline: 0;
+
+		@include breakpoint-up(medium) {
+			letter-spacing: 0;
+		}
+
+		&:hover {
+			color: $softRed;
+		}
 
 		&::-webkit-details-marker{
 			display: none;
